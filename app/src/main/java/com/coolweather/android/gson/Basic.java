@@ -9,7 +9,7 @@ public class Basic {
     @SerializedName("id")
     public String weatherId;
 
-    public Base.Update update;
+    public Basic.Update update;
 
     public class Update{
         @SerializedName("loc")
