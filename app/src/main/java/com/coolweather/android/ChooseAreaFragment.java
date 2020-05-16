@@ -34,16 +34,14 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class ChooseAreaFragment extends Fragment {
-    /**
-     * 宏定义试图的不同级别
-     */
+
+     //宏定义试图的不同级
     public static final int LEVEL_PROVINCE = 0;
     public static final int LEVEL_CITY = 1;
     public static final int LEVEL_COUNTY = 2;
-    /**
-     * 准备一些控件
-     *
-     */
+
+     //准备一些控件
+
     private ProgressDialog progressDialog;
     private TextView titleText;
     private Button backButton;
@@ -78,6 +76,7 @@ public class ChooseAreaFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         // 设置 ListView 和 Button 的点击事件
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -90,7 +89,7 @@ public class ChooseAreaFragment extends Fragment {
                     queryCounties();
                 }else if(currentLevel==LEVEL_COUNTY){
                     String weatherId = countyList.get(position).getWeatherId();
-                    if (getActivity()instanceof WeatherActivity){ // 判断碎片的位置
+                    if (getActivity() instanceof WeatherActivity){   //判断碎片的位置
                         //该碎片在WeatherActivity中，只需要刷新该活动
                         WeatherActivity activity = (WeatherActivity)getActivity();
                         activity.drawerLayout.closeDrawers();
@@ -198,6 +197,7 @@ public class ChooseAreaFragment extends Fragment {
                     }
                 });
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 // 接收响应的数据并做对应处理
